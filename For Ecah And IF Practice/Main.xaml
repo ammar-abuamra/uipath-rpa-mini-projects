@@ -89,7 +89,7 @@
       <x:Boolean x:Key="ShouldExpandAll">True</x:Boolean>
     </scg:Dictionary>
   </sap:WorkflowViewStateService.ViewState>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="666.6666666666666,1842" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="670.6666666666666,1842" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -97,13 +97,13 @@
     </sap:WorkflowViewStateService.ViewState>
     <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="540,57.333333333333336" sap2010:WorkflowViewState.IdRef="CommentOut_1">
       <ui:CommentOut.Body>
-        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="502,570.6666666666666" sap2010:WorkflowViewState.IdRef="Sequence_8">
+        <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="574,1458.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_8">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <Sequence sap:VirtualizedContainerService.HintSize="540,1392" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence sap:VirtualizedContainerService.HintSize="540,1398.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -217,8 +217,8 @@
     </ui:CommentOut>
     <Sequence DisplayName="Second Number PracticeSequence" sap:VirtualizedContainerService.HintSize="540,1762" sap2010:WorkflowViewState.IdRef="Sequence_9">
       <Sequence.Variables>
-        <Variable x:TypeArguments="x:Int32" Name="firstMax" />
-        <Variable x:TypeArguments="x:Int32" Name="secondMax" />
+        <Variable x:TypeArguments="x:Int32" Name="min1" />
+        <Variable x:TypeArguments="x:Int32" Name="min2" />
       </Sequence.Variables>
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -236,18 +236,18 @@
       </Assign>
       <Assign sap:VirtualizedContainerService.HintSize="506,116.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_7">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:Int32">[firstMax]</OutArgument>
+          <OutArgument x:TypeArguments="x:Int32">[min1]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:Int32">[Int32.MinValue]</InArgument>
+          <InArgument x:TypeArguments="x:Int32">[Int32.MaxValue]</InArgument>
         </Assign.Value>
       </Assign>
       <Assign sap:VirtualizedContainerService.HintSize="506,116.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_8">
         <Assign.To>
-          <OutArgument x:TypeArguments="x:Int32">[secondMax]</OutArgument>
+          <OutArgument x:TypeArguments="x:Int32">[min2]</OutArgument>
         </Assign.To>
         <Assign.Value>
-          <InArgument x:TypeArguments="x:Int32">[Int32.MinValue]</InArgument>
+          <InArgument x:TypeArguments="x:Int32">[Int32.MaxValue]</InArgument>
         </Assign.Value>
       </Assign>
       <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For Each item" sap:VirtualizedContainerService.HintSize="506,1329.3333333333333" sap2010:WorkflowViewState.IdRef="ForEach`1_2" Values="[NumBers]">
@@ -262,7 +262,7 @@
                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
-              <If Condition="[item &gt; firstMax]" sap:VirtualizedContainerService.HintSize="470,513.3333333333334" sap2010:WorkflowViewState.IdRef="If_3">
+              <If Condition="[item &lt; min1]" sap:VirtualizedContainerService.HintSize="470,513.3333333333334" sap2010:WorkflowViewState.IdRef="If_3">
                 <If.Then>
                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,284" sap2010:WorkflowViewState.IdRef="Sequence_11">
                     <sap:WorkflowViewStateService.ViewState>
@@ -272,15 +272,15 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <Assign sap:VirtualizedContainerService.HintSize="434,116.66666666666667" sap2010:WorkflowViewState.IdRef="Assign_9">
                       <Assign.To>
-                        <OutArgument x:TypeArguments="x:Int32">[secondMax]</OutArgument>
+                        <OutArgument x:TypeArguments="x:Int32">[min2]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
-                        <InArgument x:TypeArguments="x:Int32">[firstMax]</InArgument>
+                        <InArgument x:TypeArguments="x:Int32">[min1]</InArgument>
                       </Assign.Value>
                     </Assign>
                     <Assign sap:VirtualizedContainerService.HintSize="434,107.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_10">
                       <Assign.To>
-                        <OutArgument x:TypeArguments="x:Int32">[firstMax]</OutArgument>
+                        <OutArgument x:TypeArguments="x:Int32">[min1]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
                         <InArgument x:TypeArguments="x:Int32">[item]</InArgument>
@@ -298,7 +298,7 @@
                   </Sequence>
                 </If.Else>
               </If>
-              <If Condition="[item &gt; secondMax AND item &lt; firstMax]" sap:VirtualizedContainerService.HintSize="470,396.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
+              <If Condition="[item &gt; min1 AND item &lt; min2]" sap:VirtualizedContainerService.HintSize="470,396.6666666666667" sap2010:WorkflowViewState.IdRef="If_4">
                 <If.Then>
                   <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="468,167.33333333333334" sap2010:WorkflowViewState.IdRef="Sequence_13">
                     <sap:WorkflowViewStateService.ViewState>
@@ -308,7 +308,7 @@
                     </sap:WorkflowViewStateService.ViewState>
                     <Assign sap:VirtualizedContainerService.HintSize="434,107.33333333333333" sap2010:WorkflowViewState.IdRef="Assign_11">
                       <Assign.To>
-                        <OutArgument x:TypeArguments="x:Int32">[secondMax]</OutArgument>
+                        <OutArgument x:TypeArguments="x:Int32">[min2]</OutArgument>
                       </Assign.To>
                       <Assign.Value>
                         <InArgument x:TypeArguments="x:Int32">[item]</InArgument>
@@ -326,8 +326,8 @@
                   </Sequence>
                 </If.Else>
               </If>
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="470,123.33333333333333" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Second largest number is: &quot; + secondMax.ToString]" />
-              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;first largest number is: &quot; + firstMax.ToString]" />
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="470,123.33333333333333" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[&quot;Second Smallest number is: &quot; + min2.ToString]" />
+              <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="470,114" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[&quot;first Smalest number is: &quot; + min1.ToString]" />
             </Sequence>
           </ActivityAction>
         </ui:ForEach.Body>
